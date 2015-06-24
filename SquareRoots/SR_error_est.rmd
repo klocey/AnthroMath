@@ -1,0 +1,46 @@
+Plotting the difference between the square root and Webster-Locey Approximation. Thank you for the python code.
+
+
+```{r}
+
+rm(list=ls())
+getwd()
+setwd("~/GitHub/PeasantMath/SquareRoots")
+
+#Create a vector
+
+num <- c(1:10^8)
+
+#create a vector of perfect squares
+
+for (i in 1:10^4) {
+  sq[i] = num[i]^(2)
+}
+
+# create a vector of square roots
+
+sqrt <- NULL
+for (i in 1:10^8) {
+  sqrt[i] = num[i]^(1/2)
+}
+
+#create a vector of perfect squares and zeros separated by their distance
+
+#shell <- rep(0, 1:10^8)
+#fill <- NULL
+#for (i in 1:10^8){
+#  if (a = i^2) {
+#    fill[i] = 
+#  }
+#}
+
+
+# define previous perfect square
+
+ppsq <- NULL
+for (i in 1:10^8) {
+  if i 
+}
+
+
+```
