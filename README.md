@@ -1,4 +1,5 @@
-# AnthroMath
-Research into math without numbers
+# PeasantMath
+A collaboration of Ken Locey and Kevin Webster into novel geometric solutions to elementary mathematical operations.
 
-A collaboration of Ken Locey and Kevin Webster. More to come.
+
+
