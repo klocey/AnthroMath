@@ -8,13 +8,23 @@ mydir = os.path.expanduser("~/")
 
 def closest_perfect_square(n):
     """ http://stackoverflow.com/questions/15390807/integer-square-root-in-python """
-
     x = n
     y = (x + 1) // 2
     while y < x:
         x = y
         y = (x + n // x) // 2
     return x
+
+
+def WebsterLocey(x):
+    y1 = closest_perfect_square(x)
+
+    y2 = y1 + 1
+    z1 = x - y1**2
+    z2 = y1 + y2
+    a = y + z1/z2
+
+    return float(a)
 
 
 fig = plt.figure()
@@ -30,12 +40,7 @@ for i in range(100):
     xs.append(x)
     y = x**0.5
     sqrts.append(y)
-
-    y1 = closest_perfect_square(x) # actually gives the square root of it
-    y2 = y1 + 1
-    z1 = x - y1**2
-    z2 = float(y1 + y2)
-    a = y + z1/z2
+    a = WebsterLocey(x)
     WLs.append(a)
     x += 1
 
@@ -63,14 +68,12 @@ for i in range(100):
     xs.append(x)
     y = x**0.5
     sqrts.append(y)
-
-    y1 = closest_perfect_square(x) # actually gives the square root of it
-    y2 = y1 + 1
-    z1 = x - y1**2
-    z2 = float(y1 + y2)
-    a = y + z1/z2
+    a = WebsterLocey(x)
     WLs.append(a)
     x += 10
+
+#print len(WLs), len(xs), len(sqrts)
+#sys.exit()
 
 plt.scatter(xs, sqrts, s=50, color='m', facecolors='none', label='square root')
 plt.scatter(xs, WLs, color='c', alpha=0.9, label='W&L rule')
@@ -95,12 +98,7 @@ for i in range(30):
     xs.append(x)
     y = x**0.5
     sqrts.append(y)
-
-    y1 = closest_perfect_square(x) # actually gives the square root of it
-    y2 = y1 + 1
-    z1 = x - y1**2
-    z2 = float(y1 + y2)
-    a = y + z1/z2
+    a = WebsterLocey(x)
     WLs.append(a)
     x = x*1.5
 
@@ -114,7 +112,6 @@ leg = plt.legend(loc=2,prop={'size':12})
 leg.draw_frame(False)
 
 
-
 ax = fig.add_subplot(2,2,4)
 x = 2
 xs = []
@@ -126,12 +123,7 @@ for i in range(30):
     xs.append(x)
     y = x**0.5
     sqrts.append(y)
-
-    y1 = closest_perfect_square(x) # actually gives the square root of it
-    y2 = y1 + 1
-    z1 = x - y1**2
-    z2 = float(y1 + y2)
-    a = y + z1/z2
+    a = WebsterLocey(x)
     WLs.append(a)
     x = x*2
 
@@ -146,5 +138,5 @@ leg.draw_frame(False)
 
 plt.tick_params(axis='both', which='major', labelsize=8)
 plt.subplots_adjust(wspace=0.5, hspace=0.3)
-plt.savefig(mydir+'/GitHub/AnthroMath/SquareRoots/WebsterLoceyRule.png', dpi=600)#, bbox_inches = 'tight')#, pad_inches=0)
-#plt.show()
+#plt.savefig(mydir+'/GitHub/AnthroMath/SquareRoots/WebsterLoceyRule.png', dpi=600)#, bbox_inches = 'tight')#, pad_inches=0)
+plt.show()
