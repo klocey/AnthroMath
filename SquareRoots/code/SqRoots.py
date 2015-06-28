@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 mydir = os.path.expanduser("~/")
 
 
-def closest_perfect_square(n):
+def root_of_closest_perfect_square(n):
     """ http://stackoverflow.com/questions/15390807/integer-square-root-in-python """
     x = n
     y = (x + 1) // 2
@@ -16,13 +16,15 @@ def closest_perfect_square(n):
     return x
 
 
+
+
 def WebsterLocey(x):
-    y1 = closest_perfect_square(x)
+    y1 = root_of_closest_perfect_square(x)
 
     y2 = y1 + 1
     z1 = x - y1**2
     z2 = y1 + y2
-    a = y + z1/z2
+    a = y1 + z1/z2
 
     return float(a)
 
@@ -42,6 +44,9 @@ for i in range(100):
     sqrts.append(y)
     a = WebsterLocey(x)
     WLs.append(a)
+
+    #print y, x
+
     x += 1
 
 plt.scatter(xs, sqrts, s=50, color='m', facecolors='none', label='square root')
@@ -70,7 +75,12 @@ for i in range(100):
     sqrts.append(y)
     a = WebsterLocey(x)
     WLs.append(a)
+
+    #print y, x
+
     x += 10
+
+#print "\n\n"
 
 #print len(WLs), len(xs), len(sqrts)
 #sys.exit()
@@ -100,7 +110,12 @@ for i in range(30):
     sqrts.append(y)
     a = WebsterLocey(x)
     WLs.append(a)
+
+    #print y, x
+
     x = x*1.5
+
+#print "\n\n"
 
 plt.scatter(xs, sqrts, s=50, color='m', facecolors='none', label='square root')
 plt.scatter(xs, WLs, color='c', alpha=0.9, label='W&L rule')
@@ -125,7 +140,12 @@ for i in range(30):
     sqrts.append(y)
     a = WebsterLocey(x)
     WLs.append(a)
+
+    #print y, a
+
     x = x*2
+
+#print "\n\n"
 
 plt.scatter(xs, sqrts, s=50, color='m', facecolors='none', label='square root')
 plt.scatter(xs, WLs, color='c', alpha=0.9, label='W&L rule')
@@ -138,5 +158,5 @@ leg.draw_frame(False)
 
 plt.tick_params(axis='both', which='major', labelsize=8)
 plt.subplots_adjust(wspace=0.5, hspace=0.3)
-#plt.savefig(mydir+'/GitHub/AnthroMath/SquareRoots/WebsterLoceyRule.png', dpi=600)#, bbox_inches = 'tight')#, pad_inches=0)
-plt.show()
+plt.savefig(mydir+'/GitHub/PeasantMath/SquareRoots/WebsterLoceyRule.png', dpi=600)#, bbox_inches = 'tight')#, pad_inches=0)
+#plt.show()
