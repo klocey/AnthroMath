@@ -4,6 +4,7 @@ import os
 import matplotlib.pyplot as plt
 import scipy
 from scipy import special
+import numpy as np
 
 mydir = os.path.expanduser("~/")
 
@@ -60,6 +61,18 @@ def WHL_kth(x, k):
         i += 1
 
     a = (x - n**k)/a
+    a += n
+
+    return float(a)
+
+
+def Guess(x, k):
+    """ a function to guess the remainder of the root to reveal whether
+    decreasing error in the WHL algorithm is meaningful """
+
+    n = closest_perfect_kth_root(x, k) # x is the number of interest, k is the power
+    #a = np.random.uniform(0,1)
+    a = 0.5
     a += n
 
     return float(a)
