@@ -15,6 +15,7 @@ ks = [3]
 
 for i, k in enumerate(ks):
 
+    fs = 12
     fig = plt.figure()
     ax = fig.add_subplot(2,2,1)
 
@@ -39,12 +40,12 @@ for i, k in enumerate(ks):
 
     #plt.scatter(xs, rts, s=50, color='m', facecolors='none', label='root'+str(k))
     plt.scatter(xs, WLs, color='c', alpha=0.9, label='WHL rule')
-    #plt.scatter(xs, guesses, color='grey', alpha=0.9, label='Random guesses \nfor the remainder')
-    plt.scatter(xs, guesses, color='grey', alpha=0.9, label='Assuming the remainder\nis 1/2')
+    plt.scatter(xs, guesses, color='grey', alpha=0.9, label='Random guesses \nfor the remainder')
+    #plt.scatter(xs, guesses, color='grey', alpha=0.9, label='Assuming the remainder\nis 1/2')
     #plt.yscale('log')
     #plt.xscale('log')
-    plt.xlabel('x', fontsize=8)
-    plt.ylabel('y', fontsize=8)
+    plt.xlabel('x', fontsize=fs)
+    plt.ylabel('Percent error', fontsize=fs)
     plt.xlim(min(xs), max(xs))
     #plt.ylim(min(WLs), max(rts))
 
@@ -81,10 +82,10 @@ for i, k in enumerate(ks):
     plt.scatter(xs, WLs, color='c', alpha=0.9)
     plt.scatter(xs, guesses, color='grey', alpha=0.9)
     #plt.yscale('log')
-    plt.xscale('log')
-    plt.xlabel('x', fontsize=8)
-    plt.ylabel('y', fontsize=8)
-    plt.xlim(min(xs)*0.5, max(xs)*1.5)
+    #plt.xscale('log')
+    plt.xlabel('x', fontsize=fs)
+    plt.ylabel('Percent error', fontsize=fs)
+    plt.xlim(min(xs)*0.5, max(xs))
     #plt.ylim(min(WLs)*0.5, max(rts)*1.5)
 
 
@@ -114,8 +115,8 @@ for i, k in enumerate(ks):
     plt.scatter(xs, guesses, color='grey', alpha=0.9)
     #plt.yscale('log')
     plt.xscale('log')
-    plt.xlabel('x', fontsize=8)
-    plt.ylabel('y', fontsize=8)
+    plt.xlabel('x', fontsize=fs)
+    plt.ylabel('Percent error', fontsize=fs)
     plt.xlim(min(xs)*0.5, max(xs)*1.5)
     #plt.ylim(min(WLs)*0.5, max(rts)*1.5)
 
@@ -145,14 +146,14 @@ for i, k in enumerate(ks):
     plt.scatter(xs, guesses, color='grey', alpha=0.9)
     #plt.yscale('log')
     plt.xscale('log')
-    plt.xlabel('x', fontsize=8)
-    plt.ylabel('y', fontsize=8)
+    plt.xlabel('x', fontsize=fs)
+    plt.ylabel('Percent error', fontsize=fs)
     plt.xlim(min(xs)*0.5, max(xs)*1.5)
     #plt.ylim(min(WLs)*0.5, max(rts)*1.5)
 
 
     plt.tick_params(axis='both', which='major', labelsize=8)
     plt.subplots_adjust(wspace=0.5, hspace=0.3)
-    plt.savefig(mydir+'/GitHub/PeasantMath/Roots/figs/ErrorAnalysis/error_and_0.5remainder-Root_'+str(k)+'.png', dpi=600, bbox_inches = 'tight')#, pad_inches=0)
+    plt.savefig(mydir+'/GitHub/PeasantMath/Roots/figs/ErrorAnalysis/error_and_random_remainder-Root_'+str(k)+'.png', dpi=600, bbox_inches = 'tight')#, pad_inches=0)
     print 'finished root',k
     #plt.show()

@@ -71,8 +71,8 @@ def Guess(x, k):
     decreasing error in the WHL algorithm is meaningful """
 
     n = closest_perfect_kth_root(x, k) # x is the number of interest, k is the power
-    #a = np.random.uniform(0,1)
-    a = 0.5
+    a = np.random.uniform(0,1)
+    #a = 0.5
     a += n
 
     return float(a)
