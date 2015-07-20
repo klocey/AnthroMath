@@ -1,0 +1,33 @@
+THis code examines the value and distance of prime numbers vs their rank
+
+```{r}
+
+rm(list=ls())
+getwd()
+
+M <- read.table("first500primesTink.txt")
+v <- c(M[1,],M[2,],M[3,],M[4,],M[5,],M[6,],M[7,],M[8,],M[9,],M[10,],
+       M[11,],M[12,],M[13,],M[14,],M[15,],M[16,],M[17,],M[18,],M[19,],
+       M[20,],M[21,],M[22,],M[23,],M[24,],M[25,])
+p <- rapply(v, c)
+l <- length(p)
+r <- 1:l
+
+plot(p ~ r)
+
+#write(p, file="vector_500_primes.txt", ncolumns = l)
+
+r2 <- 1:(l-1)
+
+d <- NULL # beginning to write a for loop for the distance between primes
+
+for (i in 1:length(r2)) {
+  d[i] <- (p[i+1]-p[i])
+}  # for loop to manipulate primes into distances
+
+plot(d ~ r2)
+
+
+
+
+
